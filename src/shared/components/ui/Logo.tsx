@@ -1,12 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "./Icon";
 
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <span className="grid size-7 place-items-center rounded-[7px] bg-lime-500 text-ink">
-        <Icon name="activity" size={16} />
-      </span>
+      <Image
+        src="/img/logo-mark.png"
+        alt=""
+        width={32}
+        height={32}
+        loading="eager"
+        className="size-8 rounded-lg"
+      />
       <span className="text-lg font-semibold tracking-[-0.022em]">CrawlAi</span>
     </Link>
   );
