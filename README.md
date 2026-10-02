@@ -40,24 +40,18 @@ src/
 ├── app/                      # Thin route wrappers
 ├── features/                 # One folder per domain
 │   ├── landing/
-│   ├── auth/
-│   ├── overview/
-│   ├── traces/
-│   ├── prompts/
-│   ├── gateway/
-│   ├── projects/
-│   ├── legal/
-│   └── docs/
+│   └── coming-soon/
 └── shared/
     ├── components/
-    │   ├── layout/           # Sidebar, top bar, nav, footer
-    │   └── ui/               # Buttons, badges, inputs, code block
+    │   ├── layout/           # Nav, mobile menu, footer, providers
+    │   └── ui/               # Buttons, icons, theme toggle, fade in
     ├── hooks/
     ├── lib/
     └── types/
 ```
 
+This repo holds the landing page only. The dashboard lives in a separate project.
 
 ## License
 
-Not decided yet.
+[MIT](LICENSE)
