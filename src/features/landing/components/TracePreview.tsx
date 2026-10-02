@@ -1,7 +1,10 @@
+import { siClaude } from "simple-icons";
+import { BrandIcon } from "@/shared/components/ui/BrandIcon";
 import { Icon, type IconName } from "@/shared/components/ui/Icon";
+import { openai, type BrandMark } from "@/shared/lib/brandMarks";
 
 type Span = {
-  icon: IconName;
+  icon: IconName | BrandMark;
   iconClass: string;
   label: string;
   meta?: string;
@@ -25,8 +28,8 @@ const spans: Span[] = [
     nested: false,
   },
   {
-    icon: "sparkles",
-    iconClass: "text-lime-900",
+    icon: openai,
+    iconClass: "text-zinc-950",
     label: "llm",
     meta: "gpt-5",
     barClass: "bg-lime-500",
@@ -47,8 +50,8 @@ const spans: Span[] = [
     nested: true,
   },
   {
-    icon: "sparkles",
-    iconClass: "text-red-600",
+    icon: openai,
+    iconClass: "text-zinc-950",
     label: "llm",
     meta: "gpt-5  429",
     metaClass: "text-red-600",
@@ -59,8 +62,8 @@ const spans: Span[] = [
     nested: true,
   },
   {
-    icon: "sparkles",
-    iconClass: "text-lime-900",
+    icon: siClaude,
+    iconClass: "text-[#D97757]",
     label: "llm",
     meta: "claude-sonnet-5",
     barClass: "bg-lime-500",
@@ -86,7 +89,7 @@ export function TracePreview() {
           <span>trace_8f2a</span>
           <span className="text-zinc-500">support-agent</span>
         </div>
-        <span className="whitespace-pre text-xs text-zinc-500">2.84s  ·  $0.0142</span>
+        <span className="whitespace-pre text-xs text-zinc-500">2.84s · $0.0142</span>
       </div>
       <ul className="flex flex-col gap-3.5 text-xs">
         {spans.map((span, index) => (
@@ -94,7 +97,11 @@ export function TracePreview() {
             <div className="flex w-[210px] shrink-0 items-center gap-2">
               {span.nested && <span className="w-3.5 shrink-0" />}
               <span className="grid size-[18px] shrink-0 place-items-center rounded bg-zinc-100">
-                <Icon name={span.icon} size={11} className={span.iconClass} />
+                {typeof span.icon === "string" ? (
+                  <Icon name={span.icon} size={11} className={span.iconClass} />
+                ) : (
+                  <BrandIcon icon={span.icon} size={12} className={span.iconClass} />
+                )}
               </span>
               <span>{span.label}</span>
               {span.meta && (

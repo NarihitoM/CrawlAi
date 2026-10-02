@@ -1,5 +1,6 @@
 import { Container } from "@/shared/components/layout/Container";
 import { CopyButton } from "@/shared/components/ui/CopyButton";
+import { FadeIn } from "@/shared/components/ui/FadeIn";
 import { Icon, type IconName } from "@/shared/components/ui/Icon";
 import type { CodeLine } from "../types/types";
 import { CodeLines, comment, keyword, plain, string, toText } from "./CodeLines";
@@ -18,7 +19,12 @@ const quickstart: CodeLine[] = [
   [keyword("export"), plain(" CRAWLAI_KEY="), string("cai-live-8f2a...a3f9")],
   [],
   [comment("// 3. call any model through CrawlAi")],
-  [keyword("const"), plain(" res = "), keyword("await"), plain(' crawl.chat({ model: "gpt-5", messages })')],
+  [
+    keyword("const"),
+    plain(" res = "),
+    keyword("await"),
+    plain(' crawl.chat({ model: "gpt-5", messages })'),
+  ],
   [
     keyword("const"),
     plain(" prompt = "),
@@ -33,7 +39,7 @@ export function HowItWorks() {
   return (
     <section className="pb-20 sm:pb-28">
       <Container className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
-        <div className="flex flex-1 flex-col gap-5">
+        <FadeIn className="flex flex-1 flex-col gap-5">
           <p className="font-mono text-xs font-semibold tracking-[0.1em] text-lime-900">
             HOW IT WORKS
           </p>
@@ -54,8 +60,11 @@ export function HowItWorks() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="w-full overflow-hidden rounded-[10px] border border-zinc-200 bg-white lg:w-[600px] lg:shrink-0">
+        </FadeIn>
+        <FadeIn
+          delay={0.1}
+          className="w-full overflow-hidden rounded-[10px] border border-zinc-200 bg-white lg:w-[600px] lg:shrink-0"
+        >
           <div className="flex items-center justify-between border-b border-zinc-200 px-4 py-2.5">
             <div className="flex items-center gap-2">
               {[0, 1, 2].map((dot) => (
@@ -68,7 +77,7 @@ export function HowItWorks() {
           <div className="overflow-x-auto p-5">
             <CodeLines lines={quickstart} className="text-[13px] leading-6" />
           </div>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   );

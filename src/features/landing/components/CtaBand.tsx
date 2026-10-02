@@ -1,12 +1,13 @@
 import { Container } from "@/shared/components/layout/Container";
 import { ButtonLink } from "@/shared/components/ui/ButtonLink";
+import { FadeIn } from "@/shared/components/ui/FadeIn";
 import { site } from "@/shared/lib/site";
 
 export function CtaBand() {
   return (
     <section className="pb-20 sm:pb-28">
       <Container>
-        <div className="flex flex-col gap-8 rounded-2xl border border-lime-100 bg-lime-50 px-8 py-12 sm:px-16 sm:py-14 md:flex-row md:items-center md:justify-between">
+        <FadeIn className="flex flex-col gap-8 rounded-2xl border border-lime-100 bg-lime-50 px-8 py-12 sm:px-16 sm:py-14 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-2.5">
             <h2 className="text-[28px] font-semibold tracking-[-0.028em] sm:text-[32px]">
               See every call your agent makes
@@ -23,7 +24,7 @@ export function CtaBand() {
               Read the docs
             </ButtonLink>
           </div>
-        </div>
+        </FadeIn>
       </Container>
     </section>
   );
