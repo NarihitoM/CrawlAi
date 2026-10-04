@@ -104,14 +104,3 @@ export function AuthField({ label, name, type = "text", autoComplete }: AuthFiel
     </label>
   );
 }
-
-export function AuthSubmit({ children }: { children: ReactNode }) {
-  return (
-    <button
-      type="submit"
-      className="rounded-lg bg-lime-500 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-lime-400"
-    >
-      {children}
-    </button>
-  );
-}

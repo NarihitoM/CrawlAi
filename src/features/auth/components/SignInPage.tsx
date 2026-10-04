@@ -1,7 +1,8 @@
 import { site } from "@/shared/lib/site";
 import { safeNextPath } from "../lib/next";
 import type { AuthSearchParams } from "../types/types";
-import { AuthCard, AuthField, AuthSubmit } from "./AuthCard";
+import { AuthCard, AuthField } from "./AuthCard";
+import { AuthForm } from "./AuthForm";
 import { PasswordField } from "./PasswordField";
 
 export async function SignInPage({ searchParams }: { searchParams: Promise<AuthSearchParams> }) {
@@ -17,12 +18,15 @@ export async function SignInPage({ searchParams }: { searchParams: Promise<AuthS
       switchLabel="Create an account"
       switchHref={site.signUpUrl}
     >
-      <form action={`${site.authUrl}/sign-in`} method="post" className="flex flex-col gap-4">
+      <AuthForm
+        action={`${site.authUrl}/sign-in`}
+        submitLabel="Sign in"
+        pendingLabel="Signing in..."
+      >
         <AuthField label="Email" name="email" type="email" autoComplete="email" />
         <PasswordField autoComplete="current-password" />
         {nextPath && <input type="hidden" name="next" value={nextPath} />}
-        <AuthSubmit>Sign in</AuthSubmit>
-      </form>
+      </AuthForm>
     </AuthCard>
   );
 }
