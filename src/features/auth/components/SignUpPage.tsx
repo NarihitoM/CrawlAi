@@ -1,6 +1,7 @@
 import { site } from "@/shared/lib/site";
 import type { AuthSearchParams } from "../types/types";
 import { AuthCard, AuthField, AuthSubmit } from "./AuthCard";
+import { PasswordField } from "./PasswordField";
 
 export async function SignUpPage({ searchParams }: { searchParams: Promise<AuthSearchParams> }) {
   const { error } = await searchParams;
@@ -17,13 +18,7 @@ export async function SignUpPage({ searchParams }: { searchParams: Promise<AuthS
       <form action={`${site.authUrl}/sign-up`} method="post" className="flex flex-col gap-4">
         <AuthField label="Name" name="name" autoComplete="name" />
         <AuthField label="Email" name="email" type="email" autoComplete="email" />
-        <AuthField
-          label="Password"
-          name="password"
-          type="password"
-          autoComplete="new-password"
-          minLength={8}
-        />
+        <PasswordField autoComplete="new-password" showStrength />
         <AuthSubmit>Create account</AuthSubmit>
       </form>
     </AuthCard>
